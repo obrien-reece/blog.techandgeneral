@@ -2,23 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Articles;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class AuthorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //Retrieve all articles in the database and display them in the view
-        // To be displayed in the ALL ARTICLES section of the page
-        $articles = Articles::all();
-
-        return view('index', [
-            'articles' => $articles
-        ]);
+        //
     }
 
     /**
@@ -40,19 +34,19 @@ class ArticlesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($slug)
+    public function show($id)
     {
-        $article = Articles::with('author')->where('slug', $slug)->first();
+        $author = User::with('articles')->find($id);
 
-        return view('post', [
-           'article' => $article
+        return view('author', [
+           'author' => $author
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Articles $articles)
+    public function edit(User $user)
     {
         //
     }
@@ -60,7 +54,7 @@ class ArticlesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Articles $articles)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -68,7 +62,7 @@ class ArticlesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Articles $articles)
+    public function destroy(User $user)
     {
         //
     }

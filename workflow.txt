@@ -1,0 +1,27 @@
+A user can now bookmark
+    - He can only bookmark if logged in
+    - He cannot bookmark the same article twice
+    (At the moment I am using toastrjs to show the notifications) -> Is there a better option to this
+
+
+##Things to do
+    - Check up on the media query for the login page
+
+## Discussion prompts
+    - An article belongsTo a category. On the index page where should the category
+      be placed to Improve on aesthestics.
+    - Improve on the Logo
+    - Should the user upload two different names or just one
+    - How will the username be generated (Should the author input it himself or should we use the name entered)
+    - How will the articles be paginated on the index page (Implement loader like pinterest or youtube)
+    - How to decide the criteria for choosing the featured article
+
+## Relationahips
+Category<---->Post
+  - A post belongsTo a category
+  - A category hasMany posts
+
+Author<----->Post
+  - An author hasMany posts
+  - A post belongsTo one author
+
